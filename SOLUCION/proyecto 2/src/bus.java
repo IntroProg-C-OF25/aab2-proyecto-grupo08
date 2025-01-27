@@ -13,8 +13,66 @@ public class bus {
         int[] bus = bus();
         String[][] rutaent = barriosent();
         String[][] rutasal = bariossal();
-        op(opcion);
+        boolean si = true;
+        int j = 1;
+        String[] suma = {"0"};
+        while (si) {
+            System.out.printf("Que desea ver?\n"
+                    + "1. Barrios\n"
+                    + "2. Rutas de entrada\n"
+                    + "3. Rutas de salida\n"
+                    + "4. salir\n");
+            opcion = tcl.nextInt();
+            j = 1;
+            switch (opcion) {
+                case 1:
+                    ba(j);
+                    break;
+                case 2:
+                    ruta(j);
+                    break;
+                case 3:
+                    sal(j);
+
+                    break;
+                case 4:
+                    System.out.println("Saliendo del sistema...");
+
+                    si = false;
+                    break;
+                default:
+                    throw new AssertionError();
+            }
+        }
         System.out.println("Salida exitosa");
+
+    }
+
+    public static void ba(int j) {
+
+        String[][] parada = bariossal();
+        for (int i = 0; i < parada.length; i++) {
+            System.out.println(j + ") " + parada[i][0]);
+            j++;
+        }
+
+    }
+
+    public static void sal(int j) {
+        String[][] paradasal = bariossal();
+        for (int i = 0; i < paradasal.length; i++) {
+            System.out.println(j + ") " + paradasal[i][1] + " " + paradasal[i][2]);
+            j++;
+        }
+    }
+
+    public static void ruta(int j) {
+        String[][] rutasent = barriosent();
+
+        for (int i = 0; i < rutasent.length; i++) {
+            System.out.println(j + ") " + rutasent[i][1] + " horario " + rutasent[i][2]);
+            j++;
+        }
 
     }
 
@@ -61,60 +119,6 @@ public class bus {
             {"Terminal Terrestre", "Sauces Norte, Avenida 8 de Diciembre", "17:25, 14:25 (L-M-M-J-V)"}
         };
         return rutasal;
-    }
-
-    public static String[] op(int opcion) {
-        Scanner tcl = new Scanner(System.in);
-        boolean si = true;
-        int j = 1;
-        String[] suma = {"0"};
-        while (si) {
-            System.out.printf("Que desea ver?\n"
-                    + "1. Barrios\n"
-                    + "2. Rutas de entrada\n"
-                    + "3. Rutas de salida\n"
-                    + "4. salir\n");
-            opcion = tcl.nextInt();
-
-            switch (opcion) {
-                case 1:
-                    String[][] parada = bariossal();
-                    for (int i = 0; i < parada.length; i++) {
-                        System.out.println(j + ") " + parada[i][0]);
-                        j++;
-                    }
-                    j = 1;
-
-                    break;
-                case 2:
-                    String[][] rutasent = barriosent();
-
-                    for (int i = 0; i < rutasent.length; i++) {
-                        System.out.println(j + ") " + rutasent[i][1] + " horario " + rutasent[i][2]);
-                        j++;
-                    }
-                    j = 1;
-                    break;
-                case 3:
-                    String[][] paradasal = bariossal();
-                    for (int i = 0; i < paradasal.length; i++) {
-                        System.out.println(j + ") " + paradasal[i][1] + " " + paradasal[i][2]);
-                        j++;
-                    }
-                    j = 1;
-                    break;
-                case 4:
-                    System.out.println("Saliendo del sistema...");
-
-                    si = false;
-                    break;
-                default:
-                    throw new AssertionError();
-            }
-        }
-
-        return suma;
-
     }
 
 }
