@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author Andrés
+ * @author Andrés Vallejo, Jorge Guerrero
  */
 public class bus {
 
