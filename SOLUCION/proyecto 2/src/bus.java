@@ -10,7 +10,6 @@ public class bus {
     public static void main(String[] args) {
         Scanner tcl = new Scanner(System.in);
         int opcion = 0;
-        int[] bus = bus();
         String[][] rutaent = barriosent();
         String[][] rutasal = bariossal();
         boolean si = true;
@@ -76,14 +75,7 @@ public class bus {
 
     }
 
-    public static int[] bus() {
-        int[] nbus = new int[100];
-        nbus[0] = 1;
-        for (int i = 1; i < nbus.length; i++) {
-            nbus[i] = nbus[i - 1] + 1;
-        }
-        return nbus;
-    }
+  
 
     public static String[][] barriosent() {
 
